@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataSafe Locker</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="dark">
+
+<button class="theme-toggle-btn" onclick="toggleThemeUI()">
+  <span id="themeText">Dark Mode</span>
+</button>
+
+<div class="auth-container" id="authBox">
+  <div class="auth-card">
+      <h2>DataSafe Locker</h2>
+      <p class="tagline muted">Secure Offline Password Vault</p>
+
+      <input type="password" id="masterPassword" placeholder="Master Password">
+
+      <button class="primary" onclick="login()">Unlock Vault</button>
+      <button class="secondary" onclick="createMaster()">Create Master Password</button>
+
+      <p id="statusText" class="info"></p>
+  </div>
+</div>
+
+<div class="dashboard" id="vaultBox" style="display:none;">
+
+  <div class="topbar">
+    <div class="nav-left">
+      <div class="logo">DataSafe Locker</div>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn" onclick="showSection('addSection')">Add Entry</button>
+      <button class="nav-btn" onclick="showSection('viewSection')">View Vault</button>
+      <button class="nav-btn" onclick="showSection('toolSection')">Encrypt/Decrypt</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="stats-section">
+      <div class="stat-card">
+        <h3>Total Entries</h3>
+        <p id="entryCount" class="stat-number">0</p>
+      </div>
+
+      <div class="stat-card about-card">
+        <h3>About This Vault</h3>
+        <p>A secure offline vault with AES-256 encryption.</p>
+        <p class="muted">Powered by PBKDF2 key-derivation and unique master-based vault isolation, your data stays fully protected and accessible only to you. The built-in encrypt/decrypt module uses the same encryption engine, letting you safely encode and decode sensitive text anytime.</p>
+        <div><p>Built by: Tahir Aziz -- Web Developer & Cyber Security Trainee</p></div>
+      </div>
+    </div>
+
+    <div id="addSection" class="section">
+        <h2>Add New Entry</h2>
+        <input type="text" id="label" placeholder="Label (e.g. Facebook)">
+        <input type="password" id="secret" placeholder="Enter Password">
+        <button class="primary" onclick="saveData()">Save Entry</button>
+    </div>
+
+    <div id="viewSection" class="section" style="display:none;">
+        <h2>Stored Entries</h2>
+        <div id="output"></div>
+    </div>
+
+    <div id="toolSection" class="section" style="display:none;">
+      <h2>Encrypt / Decrypt</h2>
+      <input type="text" id="toolInput" placeholder="Enter text or encrypted data">
+      <button class="primary" onclick="toolEncrypt()">Encrypt</button>
+      <button class="secondary" onclick="toolDecrypt()">Decrypt</button>
+      <p class="info" id="toolResult"></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="vault.js"></script>
+</body>
+</html>

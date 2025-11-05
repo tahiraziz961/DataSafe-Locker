@@ -1,0 +1,243 @@
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Inter',sans-serif;
+}
+
+body{
+ --bg:#0c0e14;
+ --text:#f7f7f7;
+ --card:rgba(255,255,255,0.05);
+ --border:rgba(255,255,255,0.12);
+ --text-muted:rgba(255,255,255,0.65);
+ --heading:#ffffff;
+ --btn-text:#ffffff;
+
+ background:var(--bg);
+ color:var(--text);
+ transition:.25s ease;
+}
+
+[data-theme="light"]{
+ --bg:#f7f8fb;
+ --text:#1b1d20;
+ --card:#ffffffee;
+ --border:rgba(0,0,0,0.1);
+ --text-muted:#52565a;
+ --heading:#111;
+ --btn-text:#fff;
+
+ background:var(--bg);
+ color:var(--text);
+}
+
+/* Logo same in both modes */
+.logo{
+ font-size:28px;
+ font-weight:800;
+ color:var(--heading) !important;
+}
+
+/* Theme button bottom-right */
+.theme-toggle-btn{
+ position:fixed;
+ bottom:25px;
+ right:25px;
+ z-index:999;
+ padding:10px 18px;
+ border-radius:40px;
+ background:var(--card);
+ border:1px solid var(--border);
+ cursor:pointer;
+ font-size:12px;
+ font-weight:600;
+ backdrop-filter:blur(12px);
+}
+.theme-toggle-btn:hover{
+ background:var(--purple1);
+ color:#fff;
+}
+
+/* Auth Box */
+.auth-container{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ height:100vh;
+ padding:32px;
+}
+.auth-card{
+ width:380px;
+ padding:40px;
+ background:var(--card);
+ border-radius:20px;
+ border:1px solid var(--border);
+ backdrop-filter:blur(15px);
+ text-align:center;
+}
+.auth-card h2{
+ font-size:26px;
+ margin-bottom:6px;
+ font-weight:600;
+}
+.tagline{
+ opacity:.6;
+ margin-bottom:28px;
+ font-size:13px;
+}
+
+/* Inputs */
+input{
+ width:100%;
+ padding:14px;
+ border-radius:10px;
+ background:rgba(255,255,255,0.08);
+ border:1px solid var(--border);
+ color:var(--text);
+ margin-bottom:14px;
+}
+
+/* Buttons */
+.primary,.secondary{
+ width:100%;
+ padding:12px;
+ border-radius:10px;
+ font-weight:600;
+ cursor:pointer;
+ margin-top:10px;
+}
+
+.primary{
+ background:linear-gradient(90deg,#7b2ff7,#9b51e0);
+ color:white;
+ border:none;
+}
+.primary:hover{opacity:.9;}
+
+.secondary{
+ background:transparent;
+ border:1px solid #7b2ff7;
+ color:#7b2ff7;
+}
+.secondary:hover{background:rgba(123,47,247,.2);}
+
+.dashboard{
+ display:flex;
+ flex-direction:column;
+ height:100vh;
+}
+
+/* Top Bar */
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:18px 40px;
+ background:linear-gradient(90deg,#6a11cb,#8e3ce9,#a55df5);
+ border-bottom:1px solid rgba(255,255,255,0.15);
+ backdrop-filter:blur(20px);
+ box-shadow:0 5px 15px rgba(0,0,0,0.25);
+}
+.nav-right{
+ display:flex;
+ gap:12px;
+ align-items:center;
+}
+.nav-btn{
+ padding:10px 18px;
+ background:rgba(255,255,255,0.12);
+ border:1px solid rgba(255,255,255,0.2);
+ border-radius:8px;
+ color:#fff;
+ font-weight:500;
+ cursor:pointer;
+}
+.nav-btn:hover{background:rgba(255,255,255,0.2);}
+
+.logout-btn{
+ padding:10px 18px;
+ background:#ff4d4d;
+ border:none;
+ border-radius:8px;
+ color:white;
+ font-weight:600;
+ cursor:pointer;
+}
+.logout-btn:hover{background:#c83434;}
+
+.content{
+ flex:1;
+ padding:40px 60px;
+ overflow-y:auto;
+}
+
+/* Stats */
+.stats-section{
+ display:flex;
+ gap:20px;
+ margin-bottom:30px;
+}
+.stat-card{
+ flex:1;
+ background:var(--card);
+ border:1px solid var(--border);
+ padding:24px;
+ border-radius:14px;
+}
+.stat-card h3{
+ font-size:17px;
+ font-weight:600;
+ margin-bottom:8px;
+}
+.stat-number{
+ font-size:34px;
+ font-weight:700;
+ margin-top:4px;
+}
+
+.muted{color:var(--text-muted);}
+.about-card p{margin-top:6px;font-size:14px;}
+.creator{margin-top:10px;font-size:13px;opacity:.7;}
+
+.section h2{
+ margin-bottom:16px;
+ font-size:22px;
+ font-weight:600;
+}
+
+/* Vault Records */
+.record{
+ background:var(--card);
+ border:1px solid var(--border);
+ padding:16px;
+ border-radius:12px;
+ margin-bottom:10px;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+}
+.record span{
+ color:var(--text-muted);
+}
+
+.action-btn{
+ padding:6px 12px;
+ border-radius:8px;
+ cursor:pointer;
+ border:none;
+ color:#fff;
+}
+.btn-edit{background:#2979ff;}
+.btn-delete{background:#e33434;}
+
+/* Inline edit input */
+.inline-input{
+ padding:8px;
+ border-radius:8px;
+ border:1px solid var(--border);
+ background:var(--card);
+ color:var(--text);
+ margin-bottom:6px;
+ width:200px;
+}
